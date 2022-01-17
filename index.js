@@ -8,7 +8,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 
 app.get('/', function(req, res){
-   return res.render('home', {title: "My Contact List"});
+   return res.render('home', {title: "Contact List"});
 });
 
 app.get('/practice', function(req, res){
