@@ -3,26 +3,32 @@
        <title>
            <%= locals. title %>
        </title>
+       <link rel="stylesheet" href="/css/home.css">
+       <script src="https://kit.fontawesome.com/580655f985.js" crossorigin="anonymous"></script>
     </head>
     <body>
-        <h1>Contact List</h1>
+        <h1 id="page-header">
+            <i class="fas fa-address-book"></i>
+            Contact Manager</h1>
 
-        <div>
-            <ul>
+        <div class="contacts">
                 <% for (let i of contact_list) {%>
-                    <li>
-                       <p><%= i.name %></p>
-                       <p><%= i.phone %></p>
-                    </li>
-                    <%} %>
-            </ul>
+                   <div class="contact">
+                      <div class="display_name"> <%= i.name %></div>
+                      <div class="display_phone"><%= i.phone %></div>
+                      <a href="/deleteContact/?id=<%=i._id%>"><button class="delete_btn"><i class="fas fa-user-minus"></i></button></a>
+                   </div>
+                <%} %>
         </div>
+        
+        <div class="inputForm">
+          <form action="/create-contact" method="POST">
+               <input type="text" name="name" id="name" placeholder="Name">
+               <input type="number" name="phone" id="mob" placeholder="Phone">
+               <button type="submit" id="btn">Add Contact</button>
+           </form>  
+        </div>    
 
-        <form action="/create-contact" method="POST">
-            <input type="text" name="name" placeholder="Enter Name">
-            <input type="number" name="phone" placeholder="Enter Phone">
-
-            <button type="submit">Add Contact</button>
-        </form>
+        <script type="text/javascript" src="/js/home.js"></script>
     </body>
 </html>
