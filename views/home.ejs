@@ -16,13 +16,13 @@
                    <div class="contact">
                       <div class="display_name"> <%= i.name %></div>
                       <div class="display_phone"><%= i.phone %></div>
-                      <a href="/deleteContact/?id=<%=i._id%>"><button class="delete_btn"><i class="fas fa-user-minus"></i></button></a>
+                      <a href="/delete-Contact/?phone=<%= i.phone %>"><button class="delete_btn"><i class="fas fa-user-minus"></i></button></a>
                    </div>
                 <%} %>
         </div>
         
         <div class="inputForm">
-          <form action="/create-contact" method="POST">
+          <form action="/create-contact" method="POST" id="new-contact-form">
                <input type="text" name="name" id="name" placeholder="Name">
                <input type="number" name="phone" id="mob" placeholder="Phone">
                <button type="submit" id="btn">Add Contact</button>
