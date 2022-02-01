@@ -14,7 +14,7 @@
         <div class="contacts">
                 <% for (let i of contact_list) {%>
                    <div class="contact">
-                      <div class="display_name"> <%= i.name %></div><br><br>
+                      <div class="display_name"> <%= i.name %></div><br>
                       <div class="display_phone"><%= i.phone %></div>
                       <a href="/delete-Contact/?phone=<%= i.phone %>"><button class="delete_btn"><i class="fas fa-user-minus"></i></button></a>
                    </div>
