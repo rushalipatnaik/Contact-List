@@ -3,6 +3,7 @@ const path = require('path');
 const port = 8000;
 
 const db = require('./config/mongoose'); 
+const { collection } = require('./models/contact');
 const Contact = require('./models/contact');
 
 const app = express();
@@ -42,10 +43,18 @@ var contactList = [
 
 app.get('/', function(req, res){
     console.log(req.myName);
+
+    Contact.find({}, function(err, contacts){
+        if(err){
+            console.log('Error in fetching contacts from db');
+            return;
+        }
+
    return res.render('home', {
        title: "Contact List",
-       contact_list: contactList
-    });
+       contact_list: contacts
+     });
+   });
 });
 
 app.get('/practice', function(req, res){
