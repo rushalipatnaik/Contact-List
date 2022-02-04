@@ -3,6 +3,7 @@ const path = require('path');
 const port = 8000;
 
 const db = require('./config/mongoose'); 
+const Contact = require('./models/contact');
 
 const app = express();
 
@@ -57,8 +58,18 @@ app.post('/create-contact', function(req,res){
     //     name: req.body.name,
     //     phone: req.body.phone
     // });
-    contactList.push(req.body);
-    return res.redirect('back');
+    // contactList.push(req.body);
+    Contact.create({
+        name: req.body.name,
+        phone: req.body.phone
+    }, function(err, newContact){
+        if (err){console.log('error in creating a contact');
+        return;}
+
+        console.log('********', newContact);
+        return res.redirect('back');
+    });
+
 });
 
 app.get('/delete-contact/', function(req,res){
