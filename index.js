@@ -88,13 +88,13 @@ app.get('/delete-contact/', function(req,res){
 
    Contact.findByIdAndDelete(id, function(err){
        if(err){
-           console.log('error in deleting'));
+           console.log('error in deleting');
            return;
        }
+       console.log('delete');
+       return res.redirect('back');
    });
-
-    return res.redirect('back');
-})
+});
 
 
 app.listen(port, function(err){
