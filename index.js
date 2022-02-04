@@ -2,6 +2,8 @@ const express = require('express');
 const path = require('path');
 const port = 8000;
 
+const db = require('./config/mongoose'); 
+
 const app = express();
 
 app.set('view engine', 'ejs'); 
@@ -25,18 +27,14 @@ app.use(express.static('assets'));
 var contactList = [
     {
         name: "Rushali",
-        phone: "1234567890"
+        phone: "1234567891"
     },
     {
         name: "Sai",
-        phone: "1234567890"
+        phone: "1234567892"
     },
     {
-        name: "Rush",
-        phone: "1234567890"
-    },
-    {
-        name: "Piggy",
+        name: "Tony Stark",
         phone: "1234567890"
     }
 ]
